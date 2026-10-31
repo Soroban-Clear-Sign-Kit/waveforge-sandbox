@@ -15,7 +15,7 @@ jobs:
       issues: write
     steps:
       - name: Lint issue with WaveForge
-        uses: Soroban-Clear-Sign-Kit/waveforge-action@main
+        uses: Soroban-Clear-Sign-Kit/waveforge-action@v1
         with:
           mode: issue
 
@@ -29,6 +29,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run WaveForge repository checks
-        uses: Soroban-Clear-Sign-Kit/waveforge-action@main
+        uses: Soroban-Clear-Sign-Kit/waveforge-action@v1
         with:
           mode: repo
