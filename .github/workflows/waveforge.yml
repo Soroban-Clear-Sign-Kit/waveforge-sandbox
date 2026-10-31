@@ -1,0 +1,34 @@
+name: WaveForge
+
+on:
+  issues:
+    types: [opened, edited]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  issue-lint:
+    if: github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Lint issue with WaveForge
+        uses: Soroban-Clear-Sign-Kit/waveforge-action@main
+        with:
+          mode: issue
+
+  repo-checks:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run WaveForge repository checks
+        uses: Soroban-Clear-Sign-Kit/waveforge-action@main
+        with:
+          mode: repo
